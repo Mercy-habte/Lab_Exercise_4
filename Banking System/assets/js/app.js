@@ -1,59 +1,57 @@
 var bank_accounts = {
-	Eden: {
-		fullname: 'Eden Tesfaye',
-		balance: 100,
+	My: {
+		fullname: 'Full Name',
+		balance: 1345,
 		
 	},
-	Fitsum: {
-		fullname: 'Fitsum Alemu',
+	My2: {
+		fullname: 'Full Name',
 		balance: 0,
 	
 	}
 };
 
-Eden = bank_accounts.Eden
+My = bank_accounts.My
 function balance (){
-	alert("Your Balance is " + Eden.balance)
+	alert("Your Balance is " + My.balance)
 }
 
 function deposit( val) {
-	Eden.balance +=val
+	My.balance +=val
 	}
 
 
 function withdraw(val ) {
-	if(Eden.balance - val > 50) {
+	if(My.balance - val > 50) {
 		alert("Your Deposit Is too Low");
 	}
 	else {
-		Eden.balance -=val;
-		alert("Current Balance is"+ Eden.balance)
+		My.balance -=val;
+		alert("Current Balance is"+ My.balance)
 
 	}
 
 }
-
-
-function transfer(val, to="Fitsum") {
-	if(Eden.balance - val > 50) {
+function transfer(val, to="My2") {
+	if(My.balance - val > 50) {
 	("Your Deposit Is too Low");
 	}
 	else {
-	Eden.balance -=val;
+	My.balance -=val;
 	bank[to].balance += val;
-	alert("Current Balance is"+ Eden.balance)
+	alert("Current Balance is"+ My.balance)
 	}
 }
 
 ( ()=> {
-	alert("Welcome");
-	var input = prompt("What do you want to do?.To Deposit enter 1.To check balance enter 2 to withdraw enter 3. to transfer enter 4");
+	alert("WELCOME");
+	var input = prompt("What do you want to do?. \n 1.Deposite. \n 2.Check Balance \n 3. Withdraw. \n 4. Transfer ");
 
 	switch(input) {
 	case '1':
 		var d = prompt('Enter The amount');
 		deposit(d);
-	
+		alert("You have deposited"+ " " + d + "birr")
 		break;
 	case '2':
 		balance();
@@ -61,10 +59,12 @@ function transfer(val, to="Fitsum") {
 	case '3':
 		var w = prompt('Enter The amount');
 		withdraw(w)
+		alert("You have withdrawn"+ " " + w + "birr")
 	case '4':
 		var w = prompt('Enter The amount');
 		var t = prompt('Enter the person to transfer');
 		transfer(w,t);
+		alert("You have transfered "+ " " + w + "birr " + "to "+ t)
 	default:
 		alert("Error!"); 
 	}
